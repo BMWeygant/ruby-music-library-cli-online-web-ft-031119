@@ -44,13 +44,8 @@ class MusicLibraryController
   end
 
   def list_artists
- Artist.all.each.tap do |artists|
-   artists.sort do |a, b| binding.pry a.name <=> b.name
-   artists.each.with_index(1) do |a, i|
-       puts "#{i}. #{a.name}"
-     end
-   end
- end
+artists = Artist.all.collect{|artist| artist.name}
+artists = (artists.uniq).sort
   end
 
   def list_genres
