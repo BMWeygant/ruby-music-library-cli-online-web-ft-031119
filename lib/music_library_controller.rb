@@ -44,8 +44,9 @@ class MusicLibraryController
 
   def list_artists
  Artist.all.tap do |artists|
-   artists.sort{ |a, b| a.name <=> b.name }.each_with_index do |a, i|
+   artists.sort { |a, b| a.name <=> b.name }.each_with_index do |a, i|
        puts "#{i+1}. #{a.name}"
+     end
  end
   end
 
