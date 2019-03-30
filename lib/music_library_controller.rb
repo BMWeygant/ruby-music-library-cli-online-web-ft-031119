@@ -50,7 +50,7 @@ artists.each_with_index{|artist,index| puts "#{index+1}. #{artist}"}
   end
 
   def list_genres
-    Genre.all.sort{ |a, b| a.name <=> b.name }.each.with_index(1) do |g, i|
+    Genre.all.sort{ |a, b| a.name <=> b.name }.each.with_index(1).uniq do |g, i|
       puts "#{i}. #{g.name}"
     end
   end
