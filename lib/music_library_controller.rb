@@ -44,9 +44,8 @@ class MusicLibraryController
   end
 
   def list_artists
-artists = Artist.all.map{|artist| artist.name}
-artists = (artists.uniq).sort
-artists.each_with_index{|artist,index| puts "#{index+1}. #{artist}"}
+    Artist.all.sort{ |a, b| a.name <=> b.name }.uniq.each.with_index(1) do |a, i|
+      puts "#{i}. #{a.name}"
   end
 
   def list_genres
