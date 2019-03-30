@@ -44,10 +44,11 @@ class MusicLibraryController
 
   def list_artists
  Artist.all.each.tap do |artists|
-   artists.sort { |a, b| a.name <=> b.name }
+   artists.sort do |a, b| a.name <=> b.name 
    artists.each.with_index(1) do |a, i|
        puts "#{i}. #{a.name}"
      end
+   end
  end
   end
 
